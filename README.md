@@ -151,8 +151,7 @@ Exemple `/titres?filter=films&page=1`
 		{
 			"show_id" : 7,
 			"title" : "My Little Pony: A New Generation"
-		},
-		...
+		}
 	],
 	"filter" : "Movie",
 	"page" : 1,
