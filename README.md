@@ -32,7 +32,7 @@ Hiver 2023
 
 ## Évaluation
 
-### Question #1 - Ajouter un titre (35 points)
+### Question #1 - Ajouter un titre
 
 - Créez la structure nécessaire pour pouvoir ajouter un titre (séparation de la logique et des données).
 - Vous devez utiliser la bonne méthode HTTP pour la route
@@ -40,7 +40,7 @@ Hiver 2023
 - Les informations doivent être spécifiées uniquement dans le body de la requête.
 - Ajoutez un message dans un fichier de log nommé **Transaction.log** depuis la classe repository pour indiquer l'ajout du résultat. Le message doit avoir la structure suivante : 
 ```
-[2022-02-25T10:28:20.287054-05:00] TitreCreateRepository.INFO: Ajout du titre [show_title] id : [show_id]  
+[2022-02-25T10:28:20.287054-05:00] TitreRepository.INFO: Ajout du titre [show_title] id : [show_id]  
 ```
 - La réponse doit être formatée comme suit (la clé show_id contient le id de l'enregistrement que vous venez de créer): 
 ```json
@@ -128,18 +128,18 @@ $sql = "INSERT INTO netflix_titles (
 ----------------------------
 
 
-### Question #2 - Sélection de la liste des films ou séries (30 points)
+### Question #2 - Sélection de la liste des films ou séries
 - Créez la structure nécessaire pour afficher la liste de tous les titres filtrés par type (film ou séries) (séparation de la logique et des données).
 - Utilisez la route `/titres` avec les deux paramètres suivants : 
-  - `filter=films` ou `filter=series` affichera uniquement les films ou les séries, pour tout autre valeur ou bien si aucune n'est spécifiée, afficher tous les titres (films et séries).
+  - `filtre=films` ou `filtre=series` affichera uniquement les films ou les séries, pour tout autre valeur ou bien si aucune n'est spécifiée, afficher tous les titres (films et séries).
   - `page=1` affichera la page 1 de la liste, si le paramètre n'est pas ajouté, affichez la page 1 par défaut.
-  - Exemple : `/titres?filter=films&page=12` affichera la page 12 d'une liste de films.
+  - Exemple : `/titres?filtre=films&page=12` affichera la page 12 d'une liste de films.
 - Vous devez afficher 20 titres par page et inscrire dans la réponse le filtre (la valeur du champ `show_type`, la page en cours et le nombre de pages totales. (voir exemple plus bas). Le nombre de pages totales est en fonction du type de titre (film ou série) et non du total de titres.
 - Si on n'entre pas le paramètre `page`, affichez la première page.
 - Ajoutez les entrées nécessaires de cette route dans la documentation openAPI. Il y a déjà un fichier de débuté (sw_h2023_examen1_formatif.yaml).
 - La réponse doit être au format JSON et structurée comme l'exemple qui suit : 
 
-Exemple `/titres?filter=films&page=1`
+Exemple `/titres?filtre=films&page=1`
 
 ``````json
 {
@@ -153,9 +153,9 @@ Exemple `/titres?filter=films&page=1`
 			"title" : "My Little Pony: A New Generation"
 		}
 	],
-	"filter" : "Movie",
+	"filtre" : "Movie",
 	"page" : 1,
-	"total_pages" : 307
+	"pages_totales" : 307
 }
 ``````
 
