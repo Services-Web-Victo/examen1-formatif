@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Examen 01 Formatif
+  description: API de gestion d'une liste de films et séries présentés sur Netflix. Réalisé dans le cadre du cours Services Web au Cégep de Victoriaville.
+  
+servers: 
+  - url: http://sw_exam1_formatif.loc
+paths:
+  /:
+    get:
+      tags:
+        - Général
+      summary: Message de bienvenue
+      responses:
+        '200': 
+          description: Un petit message de bienvenue
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                example:
+                    message : 'Services Web H2023 - Examen 01 - Formatif'
+  
+  /genres:
+    get:
+      tags:
+        - Genre
+      summary: Affiche la liste de tous les genres.
+
+      responses:
+        '200': 
+          description: Un tableau de tous les genres
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                example: [Action & Adventure, Documentaries, Sci-Fi & Fantasy]
